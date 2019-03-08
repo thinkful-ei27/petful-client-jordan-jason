@@ -1,5 +1,4 @@
-import { API_BASE_URL } from '../../config'
-
+import { API_BASE_URL } from '../config'
 
 export const FETCH_CAT = 'FETCH_CAT';
 export const fetchCatSuccess = cat => ({
@@ -13,7 +12,12 @@ export const fetchCat = () => (dispatch) => {
       'content-type': 'application/json'
     }
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
     .then(cat => dispatch(fetchCatSuccess(cat)))
     .catch(err => {
       return new Error(err);
@@ -21,17 +25,21 @@ export const fetchCat = () => (dispatch) => {
 }
 
 export const DELETE_CAT = 'DELETE_CAT';
-export const deleteCat = () => (dispatch)
-=> {
+export const deleteCat = () => dispatch => {
   return fetch(`${API_BASE_URL}/cats`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json'
     }
   })
-  .then(res => res.json())
-  .then(() => dispatch(fetchCat()))
-  .catch(err => {
-    return new Error(err);
-  })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(() => dispatch(fetchCat()))
+    .catch(err => {
+      return new Error(err);
+    })
 }

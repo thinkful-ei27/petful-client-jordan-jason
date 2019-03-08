@@ -1,15 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Pet from './components/Pet';
+import store from './store';
+import { fetchCat } from './actions/cat'
+import { fetchDog } from './actions/dog'
 
-export default class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      catToAdopt: props.catToAdopt,
-      dogToAdopt: props.dogToAdopt
-    }
-  }
-  componentDidMount(){
+export class Dashboard extends React.Component {
+  componentDidMount() {
     this.props.dispatch(fetchCat());
     this.props.dispatch(fetchDog());
   }
@@ -21,10 +18,16 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <Pet animal={this.state.catToAdopt} onAdoptPet={this.onAdoptPet} />
-        <Pet animal={this.state.dogToAdopt} onAdoptPet={this.onAdoptPet} />
+        <Pet animal={this.props.catToAdopt} onAdoptPet={this.onAdoptPet} />
+        <Pet animal={this.props.dogToAdopt} onAdoptPet={this.onAdoptPet} />
       </div>
     )
-
   }
 }
+
+const mapStateToProps = state => ({
+  catToAdopt: state.catToAdopt,
+  dogToAdopt: state.dogToAdopt
+});
+
+export default connect(mapStateToProps)(Dashboard);

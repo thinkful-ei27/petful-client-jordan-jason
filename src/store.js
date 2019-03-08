@@ -1,5 +1,7 @@
-import { createStore, applyMiddleware } from 'redux';
-import think from 'redux-thunk';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 
 import { catReducer } from './reducers/cats';
-export default createStore(catReducer, applyMiddleware(thunk));
+import { dogReducer } from './reducers/dogs';
+const rootReducer = combineReducers(catReducer, dogReducer)
+export default createStore(rootReducer, applyMiddleware(thunk));

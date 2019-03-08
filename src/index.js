@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
-import Dashboard from './Dashboard';
-import * as serviceWorker from './serviceWorker';
-
+import Dashboard from './dashboard';
+import store from './store';
 
 const dogData = [
   {
@@ -34,7 +34,6 @@ const dogData = [
     story: 'Owner Passed away, couldn\'t handle cuteness of this dog.'
   }
 ]
-
 const catData = [
   {
     imageURL: 'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
@@ -65,9 +64,10 @@ const catData = [
   }
 ]
 
-ReactDOM.render(<Dashboard catToAdopt={catData[0]} dogToAdopt={dogData[0]} />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <Dashboard
+      catToAdopt={catData[0]}
+      dogToAdopt={dogData[0]} />
+  </Provider>, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

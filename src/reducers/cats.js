@@ -1,11 +1,16 @@
-const initialState = {
-  catToAdopt : {},
-  }
+import {
+  FETCH_CAT,
+  DELETE_CAT
+} from '../actions/cat';
 
-export const catReducer = (state=initialState, action) => {
-  if (action.type === actions.FETCH_CAT){
+const initialState = {
+  catToAdopt: {},
+}
+
+export const catReducer = (state = initialState, action) => {
+  if (action.type === FETCH_CAT) {
     return Object.assign({}, state, {
-      catToAdopt: actions.cat
+      catToAdopt: action.cat
     })
   }
 }
