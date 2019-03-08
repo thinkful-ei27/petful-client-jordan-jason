@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 import catReducer from './cats'
 import dogReducer from './dogs'
 
-export default combineReducers({
+const rootReducer = combineReducers({
   catReducer: catReducer,
   dogReducer: dogReducer
 })
+export default rootReducer;

@@ -12,4 +12,5 @@ export default function dogReducer(state = initialState, action) {
       dogToAdopt: action.dog
     })
   }
+  return state;
 }

@@ -17,12 +17,10 @@ export const fetchCat = () => dispatch => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
+      console.log(res.body)
       return res.json();
     })
-    .then(cat => {
-
-      dispatch(fetchCatSuccess(cat))
-    })
+    .then(cat => dispatch(fetchCatSuccess(cat)))
     .catch(err => {
       return new Error(err);
     })

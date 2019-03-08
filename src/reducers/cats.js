@@ -13,4 +13,5 @@ export default function catReducer(state = initialState, action) {
       catToAdopt: action.cat
     })
   }
+  return state;
 }
