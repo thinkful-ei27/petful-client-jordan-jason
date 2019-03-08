@@ -4,8 +4,9 @@ import Pet from './components/Pet';
 import { fetchCat } from './actions/cat'
 import { fetchDog } from './actions/dog'
 
-export class Dashboard extends React.Component {
+export class Dashboard extends React.Component{
   componentDidMount() {
+    console.log('component mounted');
     this.props.dispatch(fetchCat());
     this.props.dispatch(fetchDog());
   }

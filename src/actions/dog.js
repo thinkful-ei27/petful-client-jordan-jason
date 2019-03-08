@@ -7,7 +7,7 @@ export const fetchDogSuccess = dog => ({
   dog
 })
 export const fetchDog = () => dispatch => {
-  return fetch(`${API_BASE_URL}/dogs`, {
+  return fetch(`${API_BASE_URL}/dog`, {
     method: 'GET',
     header: {
       'content-type': 'application/json'
@@ -27,7 +27,7 @@ export const fetchDog = () => dispatch => {
 
 export const DELETE_DOG = 'DELETE_DOG';
 export const deleteDog = () => dispatch => {
-  return fetch(`${API_BASE_URL}/dogs`, {
+  return fetch(`${API_BASE_URL}/dog`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json'
