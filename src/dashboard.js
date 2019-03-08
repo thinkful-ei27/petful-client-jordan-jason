@@ -9,6 +9,10 @@ export default class Dashboard extends React.Component {
       dogToAdopt: props.dogToAdopt
     }
   }
+  componentDidMount(){
+    this.props.dispatch(fetchCat());
+    this.props.dispatch(fetchDog());
+  }
 
   onAdoptPet() {
     console.log('Adopt was clicked')
