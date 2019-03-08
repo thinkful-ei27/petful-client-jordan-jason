@@ -5,7 +5,8 @@ export const fetchCatSuccess = cat => ({
   type: FETCH_CAT,
   cat
 })
-export const fetchCat = () => (dispatch) => {
+export const fetchCat = () => dispatch => {
+  console.log('fetchCat ran')
   return fetch(`${API_BASE_URL}/cats`, {
     method: 'GET',
     header: {
@@ -13,12 +14,16 @@ export const fetchCat = () => (dispatch) => {
     }
   })
     .then(res => {
+      console.log('returning res.json')
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
-    .then(cat => dispatch(fetchCatSuccess(cat)))
+    .then(cat => {
+      console.log('dispatched catsuccess with', cat)
+      dispatch(fetchCatSuccess(cat))
+    })
     .catch(err => {
       return new Error(err);
     })

@@ -1,14 +1,13 @@
-import {
-  FETCH_DOG,
-  DELETE_DOG
-} from '../actions/dog';
+import * as actions from '../actions/dog';
 
 const initialState = {
-  dogToAdopt: {},
+  dogToAdopt: null,
+  error: null,
+  loading: false
 }
 
-export default function dogReducer(state = initialState, action){
-  if (action.type === FETCH_DOG) {
+export default function dogReducer(state = initialState, action) {
+  if (action.type === actions.FETCH_DOG) {
     return Object.assign({}, state, {
       dogToAdopt: action.dog
     })

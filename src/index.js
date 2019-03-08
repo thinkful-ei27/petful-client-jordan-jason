@@ -66,8 +66,6 @@ const catData = [
 store.getState();
 ReactDOM.render(
   <Provider store={store}>
-    <Dashboard
-      catToAdopt={catData[0]}
-      dogToAdopt={dogData[0]} />
+    <Dashboard />
   </Provider>, document.getElementById('root'));
 

@@ -15,6 +15,7 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    console.log(this.props.catToAdopt)
     return (
       <div>
         <Pet animal={this.props.catToAdopt} onAdoptPet={this.onAdoptPet} />
@@ -25,8 +26,8 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  catToAdopt: state.catToAdopt,
-  dogToAdopt: state.dogToAdopt
+  catToAdopt: state.catReducer.catToAdopt,
+  dogToAdopt: state.dogReducer.dogToAdopt
 });
 
 export default connect(mapStateToProps)(Dashboard);
