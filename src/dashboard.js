@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Pet from './components/Pet';
-import store from './store';
 import { fetchCat } from './actions/cat'
 import { fetchDog } from './actions/dog'
 

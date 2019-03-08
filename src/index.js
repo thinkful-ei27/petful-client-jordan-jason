@@ -63,7 +63,7 @@ const catData = [
     story: 'A wee lil kitty waitin for ya'
   }
 ]
-
+store.getState();
 ReactDOM.render(
   <Provider store={store}>
     <Dashboard

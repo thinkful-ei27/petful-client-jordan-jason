@@ -7,7 +7,7 @@ const initialState = {
   dogToAdopt: {},
 }
 
-export const dogReducer = (state = initialState, action) => {
+export default function dogReducer(state = initialState, action){
   if (action.type === FETCH_DOG) {
     return Object.assign({}, state, {
       dogToAdopt: action.dog

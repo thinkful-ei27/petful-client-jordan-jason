@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 export default function Pet(props) {
   console.log(props);
@@ -28,5 +29,4 @@ export default function Pet(props) {
       </div>
     </div>
   )
-
 }
