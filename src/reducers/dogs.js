@@ -12,5 +12,10 @@ export default function dogReducer(state = initialState, action) {
       dogToAdopt: action.dog
     })
   }
+  if (action.type === actions.DELETE_DOG) {
+    return Object.assign({}, state, {
+      catToAdopt: null
+    })
+  }
   return state;
 }

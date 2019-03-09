@@ -6,7 +6,6 @@ export const fetchCatSuccess = cat => ({
   cat
 })
 export const fetchCat = () => dispatch => {
-  console.log('fetchCat ran')
   return fetch(`${API_BASE_URL}/cat`, {
     method: 'GET',
     header: {
@@ -17,7 +16,6 @@ export const fetchCat = () => dispatch => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      console.log(res.body)
       return res.json();
     })
     .then(cat => dispatch(fetchCatSuccess(cat)))
@@ -26,20 +24,14 @@ export const fetchCat = () => dispatch => {
     })
 }
 
-export const DELETE_CAT = 'DELETE_CAT';
 export const deleteCat = () => dispatch => {
+  dispatch(fetchCat());
   return fetch(`${API_BASE_URL}/cat`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json'
     }
   })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject(res.statusText);
-      }
-      return res.json();
-    })
     .then(() => dispatch(fetchCat()))
     .catch(err => {
       return new Error(err);

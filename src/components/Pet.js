@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Pet(props) {
-  console.log(props);
   return (
     <div className='pet-block' >
       <div className='pet-info'>
