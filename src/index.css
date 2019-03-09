@@ -6,9 +6,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.dashboard {
+
+  margin: 20px;
+}
+
+img {
+  max-width: 90%;
+}
+
+dd {
+  display: block;
+  text-align: left;
+  margin-inline-start: 0px;
+  padding-bottom: 6px;
+}
+
+dt {
+  text-decoration: underline;
 }

@@ -20,7 +20,7 @@ export class Dashboard extends React.Component {
   render() {
     if (this.props.catToAdopt && this.props.dogToAdopt) {
       return (
-        <div>
+        <div className="dashboard">
           <Pet animal={this.props.catToAdopt} onAdoptPet={() => this.handleAdoptCat()} />
           <Pet animal={this.props.dogToAdopt} onAdoptPet={() => this.handleAdoptDog()} />
         </div>

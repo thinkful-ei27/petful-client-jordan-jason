@@ -25,20 +25,14 @@ export const fetchDog = () => dispatch => {
     })
 }
 
-export const DELETE_DOG = 'DELETE_DOG';
 export const deleteDog = () => dispatch => {
+  dispatch(fetchDog());
   return fetch(`${API_BASE_URL}/dog`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json'
     }
   })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject(res.statusText);
-      }
-      return res.json();
-    })
     .then(() => dispatch(fetchDog()))
     .catch(err => {
       return new Error(err);
