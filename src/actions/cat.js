@@ -6,6 +6,7 @@ export const fetchCatSuccess = cat => ({
   cat
 })
 export const fetchCat = () => dispatch => {
+  console.log(API_BASE_URL);
   return fetch(`${API_BASE_URL}/cat`, {
     method: 'GET',
     header: {
