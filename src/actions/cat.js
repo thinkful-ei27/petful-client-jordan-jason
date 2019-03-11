@@ -38,3 +38,10 @@ export const deleteCat = () => dispatch => {
       return new Error(err);
     })
 }
+
+export const TOGGLE_INFO = 'TOGGLE_INFO';
+export const toggleInfo = () => {
+  return {
+    type: TOGGLE_INFO,
+  };
+}

@@ -33,3 +33,29 @@ dd {
 dt {
   text-decoration: underline;
 }
+
+.header {
+  background-color:lightblue;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px;
+}
+
+p {
+  font-size: .5em;
+  padding: 10px;
+}
+
+button {
+ border-radius: 8px;
+ box-shadow: 2px 1px 5px;
+}
+
+.pet-block {
+  border: solid 2px grey;
+  padding: 5px;
+  border-radius: 15px;
+}

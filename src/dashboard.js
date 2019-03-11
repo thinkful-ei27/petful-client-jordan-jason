@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Pet from './components/Pet';
-import { fetchCat, deleteCat } from './actions/cat'
-import { fetchDog, deleteDog } from './actions/dog'
+import { fetchCat, deleteCat } from './actions/cat';
+import { fetchDog, deleteDog } from './actions/dog';
 
 export class Dashboard extends React.Component {
   componentWillMount() {
